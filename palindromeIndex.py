@@ -1,26 +1,19 @@
 def palindromeIndex(s):
     # Write your code here
-    index = -1
-    if (checkPalindrome(s)):
-        return index
-    else:
-        for i in range(len(s)):
-            temp = s[:i] + s[i+1:]
-            print(temp)
-            if (checkPalindrome(temp)):
-                return i
-    return index
+    if s == s[::-1]:
+        return -1
 
-def checkPalindrome(s):
-    st = 0
-    ed = len(s)-1
-    while (st< ed):
-        if(s[st] != s[ed]):
-            return False
-        st += 1
-        ed -= 1
-    return True
-        
+    n = len(s)
+
+    for i in range(n//2):
+        if s[i] != s[n-1-i]:
+            if s[i:n-1-i] == s[i:n-1-i][::-1]:
+                return n-1-i
+            elif s[i+1:n-i] == s[i+1:n-1][::-1]:
+                return i
+    
+    return -1
+
     
 
 print(palindromeIndex("prcoitfiptvcxrvoalqmfpnqyhrubxspplrftomfehbbhefmotfrlppsxburhyqnpfmqlaorxcvtpiftiocrp"))

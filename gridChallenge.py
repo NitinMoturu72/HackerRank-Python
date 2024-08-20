@@ -4,7 +4,7 @@ def gridChallenge(grid):
     for i in grid:
         temp = ''.join(sorted(i))
         ngrid.append(temp)
-    print(ngrid)
+    # print(ngrid)
     
     for i in range(len(ngrid[0])):
         for j in range(len(ngrid)-1):
